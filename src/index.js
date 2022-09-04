@@ -1,3 +1,4 @@
+//imports
 import { createRoot } from 'react-dom/client';
 import { useEffect, useState } from 'react';
 const BASE_URL = 'https://strangers-things.herokuapp.com/api/2208-ftb-et-web-ft';
@@ -14,7 +15,9 @@ const App = () => {
 	const fetchPosts = async () => {    
 		const response = await fetch (`${BASE_URL}/posts`);
         const result = await response.json();
-		const allPostsList = result.results;
+		console.log("1", result)
+		const allPostsList = result.data.posts;
+		console.log("2", allPostsList)
 		setAllPosts(allPostsList)
 	}
 	return (
@@ -26,8 +29,16 @@ const App = () => {
 				<span>Log In </span>
 			</nav>
 			<div>
-				<h2>All forms</h2>
+				<h2>All Posts</h2>
+				<ul>
+					{
+						allPosts.map((singlePost, i) => {
+							console.log("test", singlePost, typeof singlePost)
+							return <li key={i}> {singlePost.title}</li>
 
+						})
+					}
+				</ul>
 			</div>
 		</div>
 	)}
