@@ -8,8 +8,8 @@ const Posts = () => {
         const fetchPosts = async () => {    
             const response = await fetch (`${BASE_URL}/posts`);
             const allPostObj = await response.json();
-            console.log (allPostObj)
-            setAllPosts([allPostObj.data.posts]);
+            const allPostsList = allPostObj.data.posts;
+            setAllPosts(allPostsList);
         }
         fetchPosts()
 }, []);
@@ -19,8 +19,9 @@ return (
             <h2>All Posts by title</h2>
 		    <ul>
 		        {
-                allPosts.map((allPostsList, i) => {
-			    return <li key={i}> {allPostsList.title}</li>
+                allPosts.map((singlePost, i) => {
+                    console.log ("eep", singlePost, singlePost.title)
+			    return <li key={i}> {singlePost.title}</li>
 			    } )
 		        }
 		    </ul>
