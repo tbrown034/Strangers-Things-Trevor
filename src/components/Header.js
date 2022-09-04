@@ -9,9 +9,7 @@ const Header = () => {
 				<span>Profile </span>
 				<span>Log In </span>
 			</nav>
-			<div>
-				<h1>Stranger's Things</h1>
-			</div>
+		<h1>STRANGER'S THIGNS</h1>	
     </header>)
 }
 
