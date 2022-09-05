@@ -13,18 +13,36 @@ const Posts = () => {
         }
         fetchPosts()
 }, []);
+
 return (
    <div>
         <div>
-            <h2 id="posts"> All Posts by title</h2>
-		    <ul id="posts">
+            <h2 id="posts"> All Posts</h2>
+
+            
 		        {
                 allPosts.map((singlePost, i) => {
-			    return <li key={i}> {singlePost.title}</li>
+			    return (
+                    <div id="marketPlace">
+                        <ul>
+                        <li key={i}> {singlePost.title}</li>
+                            <ul>
+                                <li key={i}> Price: {singlePost.price}</li>
+                                <li key={i}> description: {singlePost.price}</li>
+                                <li key={i}> Seller: {singlePost.author.username}</li>
+                                <li key={i}> Location: {singlePost.location}</li>
+                                <li key={i}> Post Created: {singlePost.createdAt}</li>
+
+
+
+                            </ul>
+                        </ul>
+                    </div>
+                ) 
+                
                 
 			    } )
 		        }
-		    </ul>
         </div>	
 	</div> 
         )
