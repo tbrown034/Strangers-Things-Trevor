@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { BASE_URL } from '../api'
-/// allPosts is state.allPosts and setAllPosts is a function that sets state.allPosts
+/// Not to self: allPosts is state.allPosts and setAllPosts is a function that sets state.allPosts ... and state is an object with keys and values. State is an object that holds our data (that will change)
 const Posts = () => {
     const [allPosts, setAllPosts] = useState([]);
     useEffect(() => {
@@ -16,12 +16,12 @@ const Posts = () => {
 return (
    <div>
         <div>
-            <h2>All Posts by title</h2>
-		    <ul>
+            <h2 id="posts"> All Posts by title</h2>
+		    <ul id="posts">
 		        {
                 allPosts.map((singlePost, i) => {
-                    console.log ("eep", singlePost, singlePost.title)
 			    return <li key={i}> {singlePost.title}</li>
+                
 			    } )
 		        }
 		    </ul>

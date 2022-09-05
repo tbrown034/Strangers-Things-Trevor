@@ -1,0 +1,21 @@
+* {
+    background-color: lightblue;
+}
+
+.header {
+
+    color: blue;
+    font-size: 20px;
+    align-content: center;
+}
+
+nav {
+    display: flex;  
+    justify-content: space-between;
+
+}
+
+#posts {
+    color: blueviolet;
+}
+
