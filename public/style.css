@@ -1,5 +1,5 @@
 * {
-    background-color: lightblue;
+    background-color: skyblue;
 }
 
 .header {
@@ -16,11 +16,17 @@ nav {
 }
 
 #posts {
-    color: blueviolet;
+    color: darkblue;
 }
 
 #marketPlace {
-    color: brown;
+    color: midnightblue;
     border: 1px black solid;
 
+}
+
+#itemTitle {
+    font-size: larger;
+    font-weight: bolder;
+    color: blue;
 }
