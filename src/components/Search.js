@@ -1,8 +1,9 @@
+import React from "react";
 import { useState } from "react";
 
 const Search = () => {
     const [searchTerm, setSearchTerm] = useState("");
-    const [searchResults, setSearchResults] = ([]);
+    // const [searchResults, setSearchResults] = ([]);
     const handleChange = (event) => {
         setSearchTerm(event.target.value)}
 
@@ -20,5 +21,5 @@ const Search = () => {
             </div>
         </div>
         )}
-// console.log ("search", searchTerm, setSearchTerm)
-export default Search
+
+ export default Search 

@@ -1,6 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { BASE_URL } from '../api'
+import { BASE_URL } from '../api';
+import { Search } from './Search'
+
+
 /// Not to self: allPosts is state.allPosts and setAllPosts is a function that sets state.allPosts ... and state is an object with keys and values. State is an object that holds our data (that will change)
 const Posts = () => {
 	const [allPosts, setAllPosts] = useState([]);
@@ -13,9 +16,6 @@ const Posts = () => {
 		}
 		fetchPosts()
 }, []);
-
-
-
 return (
    <div>
 		<div>
@@ -43,5 +43,20 @@ return (
 		)
 }
 export default Posts 
+
+
+
+////////////// This doesn't work, not inporting the searchTerm properly and can't figure out for 2 hours. 
+
+// .filter((singlePost) => {
+// 	if (searchTerm == "") {
+// 		return singlePost 
+// 	}
+// 	else if (singlePost.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+// 		return singlePost
+// 	}
+// }).
+
+// Source to help?? https://www.youtube.com/watch?v=mZvKPtH9Fzo&ab_channel=PedroTech
 
 
