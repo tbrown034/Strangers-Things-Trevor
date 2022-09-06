@@ -10,14 +10,15 @@ const Search = () => {
         <div>
             <div>
             <h1>Search</h1>
+            {console.log("search entry test",searchTerm)}
             <form>
                 <input type="search" placeholder="Search Here..." value={searchTerm}
-                onChange={handleChange}  
+                onChange={handleChange}
                 />
                 <button onClick={handleChange} type="submit">Search</button>
             </form>
             </div>
         </div>
         )}
-
+// console.log ("search", searchTerm, setSearchTerm)
 export default Search
