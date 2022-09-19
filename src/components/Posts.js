@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import { BASE_URL } from '../api';
 import { Search } from './Search'
 
-
-/// Not to self: allPosts is state.allPosts and setAllPosts is a function that sets state.allPosts ... and state is an object with keys and values. State is an object that holds our data (that will change)
 const Posts = () => {
 	const [allPosts, setAllPosts] = useState([]);
+	const [searchTerm, setSearchTerm] = useState("");
+	const handleChange = (event) => {
+        setSearchTerm(event.target.value)};
 	useEffect(() => {
 		const fetchPosts = async () => {    
 			const response = await fetch (`${BASE_URL}/posts`);
@@ -18,16 +19,33 @@ const Posts = () => {
 }, []);
 return (
    <div>
-		<div>
-			<h2 id="posts"> All Posts</h2>
+		<div className="SearchInput">
+            <h1>Search</h1>
+            {console.log("search entry test",searchTerm)}
+            <form>
+                <input type="search" placeholder="Search Here..." value={searchTerm}
+                onChange={handleChange}
+                />
+                <button onClick={handleChange} type="submit">Search</button>
+            </form>
+            </div>
+		<div className="allposts">
+			<h2> All Posts</h2>
 				{
-				allPosts.map((singlePost, _id) => {
+				allPosts.filter((singlePost) => {
+					if (searchTerm == ""){
+						return singlePost
+					}
+					else if (singlePost.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+						return singlePost
+					}
+				}).map((singlePost, _id) => {
 				return (
 					<div key={_id}>
 						<ul id="marketPlace">
 						<li id="itemTitle"> {singlePost.title}</li>
 							<ul>
-								<li > Price: {singlePost.price}</li>
+								<li> Price: {singlePost.price}</li>
 								<li> description: {singlePost.price}</li>
 								<li> Seller: {singlePost.author.username}</li>
 								<li> Location: {singlePost.location}</li>
@@ -38,25 +56,11 @@ return (
 				) 
 				} )
 				}
-		</div>	
+		</div>
+
 	</div> 
 		)
 }
 export default Posts 
-
-
-
-////////////// This doesn't work, not inporting the searchTerm properly and can't figure out for 2 hours. 
-
-// .filter((singlePost) => {
-// 	if (searchTerm == "") {
-// 		return singlePost 
-// 	}
-// 	else if (singlePost.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-// 		return singlePost
-// 	}
-// }).
-
-// Source to help?? https://www.youtube.com/watch?v=mZvKPtH9Fzo&ab_channel=PedroTech
 
 
