@@ -1,17 +1,22 @@
 import React, { useState } from "react";
-// import { registerUser } from "../api";
+import { registerUser } from "../api";
 
 
 const Register = () => {
     const [userName, setUserName] = useState("");
     const [userPass, setUserPass] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const submitForm = (event) => {
+    const submitForm = async (event) => {
         event.preventDefault();
         if (userPass !== confirmPassword) {
             alert("Passwords to do not match. Try again!")}
-        else {registerPerson(event)}
-
+        else {await registerUser(userName, userPass);
+            setUserName("");
+            setUserPass("");
+            setConfirmPassword("");
+            alert("Success!")
+        };
+       
     }
 
 

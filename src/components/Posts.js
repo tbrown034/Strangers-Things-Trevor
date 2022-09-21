@@ -19,22 +19,6 @@ const Posts = () => {
 			const returnPosts = await fetchPosts();
 			setAllPosts(returnPosts)
 		}
-
-		
-
-
-		// const fetchPosts = async () => {    
-		// 	const returnPosts = await fetchPosts();
-		// 	setAllPosts(returnPosts);
-		// }
-
-
-		// const fetchPosts = async () => {    
-		// 	const response = await fetch (`${BASE_URL}/posts`);
-		// 	const allPostObj = await response.json();
-		// 	const allPostsList = allPostObj.data.posts;
-		// 	setAllPosts(allPostsList);
-		// }
 		displayPosts()
 }, []);
 return (

@@ -9,13 +9,23 @@ export const fetchPosts = async () => {
     return allPosts;
 }
 
-
-
-
-
-    
-
-
-
-
-     
+export const registerUser = async (userName, userPass) => {
+    const response = await fetch(`${BASE_URL}/users/register`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          user: {
+            username: userName,
+            password: userPass
+          }
+        })
+      });
+     const result = await response.json();
+     const token = result.data.token;
+     console.log("registerusertest token and then result", token, result);
+     localStorage.setItem("token", token);
+     localStorage.setItem("userName", userName)
+     return result; 
+    }
