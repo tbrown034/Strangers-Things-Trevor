@@ -1,7 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { BASE_URL } from '../api';
-import { Search } from './Search'
+import { fetchPosts } from '../api'
+// import { BASE_URL } from '../api';
+// import { Search } from './Search'
 
 
 
@@ -11,14 +12,30 @@ const Posts = () => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const handleChange = (event) => {
         setSearchTerm(event.target.value)};
+
+
 	useEffect(() => {
-		const fetchPosts = async () => {    
-			const response = await fetch (`${BASE_URL}/posts`);
-			const allPostObj = await response.json();
-			const allPostsList = allPostObj.data.posts;
-			setAllPosts(allPostsList);
+		const displayPosts = async () => {
+			const returnPosts = await fetchPosts();
+			setAllPosts(returnPosts)
 		}
-		fetchPosts()
+
+		
+
+
+		// const fetchPosts = async () => {    
+		// 	const returnPosts = await fetchPosts();
+		// 	setAllPosts(returnPosts);
+		// }
+
+
+		// const fetchPosts = async () => {    
+		// 	const response = await fetch (`${BASE_URL}/posts`);
+		// 	const allPostObj = await response.json();
+		// 	const allPostsList = allPostObj.data.posts;
+		// 	setAllPosts(allPostsList);
+		// }
+		displayPosts()
 }, []);
 return (
    <div>

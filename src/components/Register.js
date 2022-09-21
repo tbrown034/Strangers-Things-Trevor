@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+// import { registerUser } from "../api";
+
 
 const Register = () => {
     const [userName, setUserName] = useState("");
@@ -7,8 +9,8 @@ const Register = () => {
     const submitForm = (event) => {
         event.preventDefault();
         if (userPass !== confirmPassword) {
-            alert("Passwords to do not match. Try again!")
-        }
+            alert("Passwords to do not match. Try again!")}
+        else {registerPerson(event)}
 
     }
 
