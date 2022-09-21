@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import { BASE_URL } from '../api';
 import { Search } from './Search'
 
+
+
+
 const Posts = () => {
 	const [allPosts, setAllPosts] = useState([]);
 	const [searchTerm, setSearchTerm] = useState("");
