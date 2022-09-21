@@ -29,3 +29,25 @@ export const registerUser = async (userName, userPass) => {
      localStorage.setItem("userName", userName)
      return result; 
     }
+
+export const loginUser = async (userName, userPass) => {
+    const response = await fetch(`${BASE_URL}/users/login`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          user: {
+            username: userName,
+            password: userPass
+          }
+        })
+      });
+     const result = await response.json();
+     const token = result.data.token;
+     console.log("registerusertest token and then result", token, result);
+     localStorage.setItem("token", token);
+     localStorage.setItem("userName", userName)
+     return token; 
+    }
+

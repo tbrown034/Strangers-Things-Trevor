@@ -6,7 +6,7 @@ const Register = () => {
     const [userName, setUserName] = useState("");
     const [userPass, setUserPass] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const submitForm = async (event) => {
+    const submitRegisterForm = async (event) => {
         event.preventDefault();
         if (userPass !== confirmPassword) {
             alert("Passwords to do not match. Try again!")}
@@ -14,7 +14,7 @@ const Register = () => {
             setUserName("");
             setUserPass("");
             setConfirmPassword("");
-            alert("Success!")
+            alert("Registation Success!")
         };
        
     }
@@ -27,7 +27,7 @@ return (
             <h1>Register</h1>
             <h3>Note: Name and password must be at least eight charcters long</h3>
             {console.log ("enter name and password test", userName, userPass)}
-            <form id="registerForm" onSubmit={submitForm}>
+            <form id="registerForm" onSubmit={submitRegisterForm}>
                 <input placeholder="Create a username ..." type="text" required minLength="8" value={userName} onChange={(event) => {
                     setUserName(event.target.value)}}  />
                 <input placeholder="Create a password ..." type="password" required value={userPass} onChange={(event) => {
