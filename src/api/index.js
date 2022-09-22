@@ -24,7 +24,6 @@ export const registerUser = async (userName, userPass) => {
       });
      const result = await response.json();
      const token = result.data.token;
-     console.log("registerusertest token and then result", token, result);
      localStorage.setItem("token", token);
      localStorage.setItem("userName", userName)
      return result; 
@@ -45,7 +44,7 @@ export const loginUser = async (userName, userPass) => {
       });
      const result = await response.json();
      const token = result.data.token;
-     console.log("registerusertest token and then result", token, result);
+
      localStorage.setItem("token", token);
      localStorage.setItem("userName", userName)
      return token; 

@@ -26,13 +26,12 @@ return (
         <div>
             <h1>Register</h1>
             <h3>Note: Name and password must be at least eight charcters long</h3>
-            {console.log ("enter name and password test", userName, userPass)}
             <form id="registerForm" onSubmit={submitRegisterForm}>
                 <input placeholder="Create a username ..." type="text" required minLength="8" value={userName} onChange={(event) => {
                     setUserName(event.target.value)}}  />
-                <input placeholder="Create a password ..." type="password" required value={userPass} onChange={(event) => {
+                <input placeholder="Create a password ..." type="password" autoComplete="on" required value={userPass} onChange={(event) => {
                     setUserPass(event.target.value) }}  />
-                <input placeholder="Confirm your password ..." type="password" required value={confirmPassword} onChange={(event) => {
+                <input placeholder="Confirm your password ..." type="password" autoComplete="off" required value={confirmPassword} onChange={(event) => {
                     setConfirmPassword(event.target.value) }}  />    
                 <button type="submit">Create Your Account!</button>
             </form> 

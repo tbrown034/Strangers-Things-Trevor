@@ -25,12 +25,11 @@ return (
    <div>
 		<div className="SearchInput">
             <h1>Search</h1>
-            {console.log("search entry test",searchTerm)}
             <form>
                 <input type="search" placeholder="Search Here..." value={searchTerm}
                 onChange={handleChange}
                 />
-                <button onClick={handleChange} type="submit">Search</button>
+                {/* <button onClick={handleChange} type="submit">Search</button> */}
             </form>
             </div>
 		<div className="allposts">
