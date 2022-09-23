@@ -3,13 +3,16 @@ import { getUserInfo } from "../api";
 
 const Profile = () => {
   const [myInfo, setMyInfo] = useState({});
-  useEffect(async() => {
-          const getMyInfo = await getUserInfo();
-          setMyInfo(getMyInfo);
-    }, []);
+  const token = localStorage.getItem("token");
+  useEffect(() => {
+		const displayUserInfo = async () => {
+			const getmyInfo = await getUserInfo(token);
+			setMyInfo(getmyInfo)
+		}
+		displayUserInfo()
+}, []);
 
-    // const posts = myInfo.posts;
-    const userName = myInfo.username
+    const userName = myInfo.data.username;
 
   return (
     <div>
