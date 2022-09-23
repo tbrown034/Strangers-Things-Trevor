@@ -50,3 +50,29 @@ export const loginUser = async (userName, userPass) => {
      return token; 
     }
 
+export const getUserInfo = async (token) => {
+  const response = await fetch(`${BASE_URL}/users/me`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer TOKEN_STRING_HERE'
+    },})
+  const result = await response.json();
+  const userProfile = result;
+  return userProfile;}
+
+
+export const CreateNewPost = async (token, post) => {
+   const response = await fetch(`${BASE_URL}/posts`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        post: post,
+      }),
+    });
+    const result = await response.json();
+    const newPost = result.data.posts;
+    return newPost;
+  }
