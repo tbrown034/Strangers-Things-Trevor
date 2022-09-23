@@ -12,7 +12,7 @@ const NewPost = () => {
     const sumbitNewPost = async (event) => {
          event.preventDefault();
         const token = localStorage.getItem("token")
-        const newPost = {
+        const post = {
             title: title,
             description: description,
             price: price,
@@ -20,7 +20,7 @@ const NewPost = () => {
             willDeliver: willDeliver
         }
         alert("Congrats! Your post has been posted!");
-        const displayNewPost = await CreateNewPost(token, newPost);
+        const displayNewPost = await CreateNewPost(token, post);
         return displayNewPost
     };
 
@@ -50,7 +50,7 @@ const NewPost = () => {
     return (
         <div>
             <h1>Add New Post</h1>
-            <form id="newPostForm" onChange={sumbitNewPost}>
+            <form id="newPostForm" onSubmit={sumbitNewPost}>
                     <label>Title:   </label>
                     <input type="text" id="titleId" name="title" onChange={addTitle} ></input><br></br>
                     <label>Description: </label>

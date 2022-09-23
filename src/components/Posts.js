@@ -49,7 +49,7 @@ return (
 						<li id="itemTitle"> {singlePost.title}</li>
 							<ul>
 								<li> Price: {singlePost.price}</li>
-								<li> description: {singlePost.price}</li>
+								<li> description: {singlePost.description}</li>
 								<li> Seller: {singlePost.author.username}</li>
 								<li> Location: {singlePost.location}</li>
 								<li> Post Created: {singlePost.createdAt}</li>
