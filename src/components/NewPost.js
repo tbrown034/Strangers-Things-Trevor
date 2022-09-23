@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { CreateNewPost } from "../api";
 
-
 const NewPost = () => {
     const [title, setTitle] = useState("");
     const [description, setdescription] = useState("");
@@ -19,8 +18,9 @@ const NewPost = () => {
             location: location,
             willDeliver: willDeliver
         }
-        alert("Congrats! Your post has been posted!");
+        
         const displayNewPost = await CreateNewPost(token, post);
+        alert("Congrats! Your post has been posted!");
         return displayNewPost
     };
 

@@ -1,27 +1,27 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import {getUserInfo} from "../api"
+import React, { useState, useEffect } from "react";
+import { getUserInfo } from "../api";
+
 const Profile = () => {
-    let token = "";
-    const [userInfo, setUserInfo] = useState;
-    useEffect(() => {
-        token = localStorage.getItem("token")
-		const displayUserInfo = async () => {
-			const recievedUserInfo = await getUserInfo();
-			setUserInfo(recievedUserInfo)
-		}
-		displayUserInfo()
-}, []);
-    return (
-        <div>
-            <h1>User Profile</h1>
-            <p>Welcome User</p>
-        </div>
-    )
+  const [myInfo, setMyInfo] = useState({});
 
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    if (token) {
+        const getMyInfo = () => {
+        const returnedInfo =  getUserInfo(token);
+        setMyInfo(returnedInfo);
+        }
+      getMyInfo();
+    }
+  }, []);
 
+  return (
+    <div>
+      <h1>Welcome to your profile {myInfo.userName}!</h1>
+      <div>Your Messages:</div>
+      <div>You currently have no messages!</div>
+    </div>
+  )
+};
 
-
-}
-
-export default Profile 
+export default Profile;
