@@ -12,10 +12,10 @@ const Profile = () => {
 		}
 		displayUserInfo()
 }, []);
-    const userName = myInfo.data.username;
+    // const userName = myInfo.data.username;
   return (
     <div>
-      <h1>Welcome to your profile  {userName} !</h1>
+      <h1>Welcome to your profile  !</h1>
       <div>Your Messages:</div>
       <div>You currently have no messages!</div>
     </div>
