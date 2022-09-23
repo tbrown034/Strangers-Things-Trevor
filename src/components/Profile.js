@@ -17,7 +17,7 @@ const Profile = () => {
 
   return (
     <div>
-      <h1>Welcome to your profile {myInfo.userName}!</h1>
+      <h1>Welcome to your profile {myInfo.username} !</h1>
       <div>Your Messages:</div>
       <div>You currently have no messages!</div>
     </div>
