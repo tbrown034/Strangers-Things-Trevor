@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { getUserInfo } from "../api";
 
@@ -11,9 +12,7 @@ const Profile = () => {
 		}
 		displayUserInfo()
 }, []);
-
     const userName = myInfo.data.username;
-
   return (
     <div>
       <h1>Welcome to your profile  {userName} !</h1>
@@ -26,4 +25,3 @@ const Profile = () => {
 };
 
 export default Profile;
-
