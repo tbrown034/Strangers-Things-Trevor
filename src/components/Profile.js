@@ -3,21 +3,17 @@ import { getUserInfo } from "../api";
 
 const Profile = () => {
   const [myInfo, setMyInfo] = useState({});
-  let token = localStorage.getItem("token");
-  if (!token) {
-    return
-  }
-    else {useEffect(() => {
-          const getMyInfo = () => {
-          const returnedInfo =  getUserInfo(token);
-          setMyInfo(returnedInfo);
-          }
-        getMyInfo();
-    }, []);}
+  useEffect(async() => {
+          const getMyInfo = await getUserInfo();
+          setMyInfo(getMyInfo);
+    }, []);
+
+    // const posts = myInfo.posts;
+    const userName = myInfo.username
 
   return (
     <div>
-      <h1>Welcome to your profile  {myInfo.data.username.value} !</h1>
+      <h1>Welcome to your profile  {userName} !</h1>
       <div>Your Messages:</div>
       <div>You currently have no messages!</div>
     </div>
