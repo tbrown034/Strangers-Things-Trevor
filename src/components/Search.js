@@ -1,29 +1,90 @@
-// import React from "react";
-// import { useState } from "react";
+import React from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { getProfile, getPosts } from "../api";
 
-// const Search = () => {
-//     const [searchTerm, setSearchTerm] = useState("");
-//     const [searchResults, setSearchResults] = ([]);
-//     const handleChange = (event) => {
-//         setSearchTerm(event.target.value)};
+const Profile = ({ setSinglePost }) => {
+  let token = "";
+  const [allPosts, setAllPosts] = useState([]);
+  const [myInfo, setMyInfo] = useState({});
 
-//     return (
-//         <div>
-//             <div className="SearchInput">
-//             <h1>Search</h1>
-//             {console.log("search entry test",searchTerm)}
-//             <form>
-//                 <input type="search" placeholder="Search Here..." value={searchTerm}
-//                 onChange={handleChange}
-//                 />
-//                 <button onClick={handleChange} type="submit">Search</button>
-//             </form>
-//             </div>
-//             <div className="SearchOutput">
+  useEffect(() => {
+    async function fetchPosts() {
+      const returnPosts = await getPosts();
+      setAllPosts(returnPosts);
+    }
+    fetchPosts();
+    token = localStorage.getItem("token");
+    async function getMyInfo() {
+      const myReturnedInfo = await getProfile(token);
+      setMyInfo(myReturnedInfo);
+    }
+    getMyInfo();
+  }, []);
 
+  return localStorage.getItem("loggedIn") ? (
+    <div className="profileBoxes">
+      <h3 className="profileTitles">Messages from Shoppers:</h3>
+      <div>
+        {myInfo.data
+          ? myInfo.data.messages.map((message, index) => {
+              return myInfo.data.username !== message.fromUser.username ? (
+                <div key={index} className="allPosts">
+                  <div className="postInfo">
+                    <b>
+                      <u>{message.fromUser.username}</u>
+                    </b>
+                  </div>
+                  <div className="postInfo">Message: {message.content}</div>
+                  <div className="postInfo">
+                    View Post:{" "}
+                    <Link
+                      className="Button"
+                      to={`/UserPost/`}
+                      onClick={() => {
+                        setSinglePost(message.post._id);
+                      }}
+                    >
+                      {`${message.post.title}`}
+                    </Link>
+                  </div>
+                </div>
+              ) : null;
+            })
+          : null}
+      </div>
 
-//             </div>
-//         </div>
-//         )}
+      <h3 className="profileTitles">Messages from Me:</h3>
+      <div>
+        {myInfo.data
+          ? myInfo.data.messages.map((message, index) => {
+              return (
+                <div key={index} className="allPosts">
+                  <div className="postInfo">
+                    <b>
+                      <u>(Sent By Me)</u>
+                    </b>
+                  </div>
+                  <div className="postInfo">Message: {message.content}</div>
+                  <div className="postInfo">
+                    View Post:{" "}
+                    <Link
+                      className="Button"
+                      to={`/OthersPost/`}
+                      onClick={() => {
+                        setSinglePost(message.post._id);
+                      }}
+                    >
+                      {`${message.post.title}`}
+                    </Link>
+                  </div>
+                </div>
+              );
+            })
+          : null}
+      </div>
+    </div>
+  ) : null;
+};
 
-//  export default Search 
+export default Profile;

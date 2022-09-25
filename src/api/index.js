@@ -48,15 +48,15 @@ export const loginUser = async (userName, userPass) => {
      return token; 
     }
 
-export const getUserInfo = async (token) => {
+export const getUserMessages = async (token) => {
   const response = await fetch(`${BASE_URL}/users/me`, {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`,
     },})
   const result = await response.json();
-  const userProfile = result;
-  return userProfile;}
+  const userMessages = result.messages;
+  return userMessages;}
 
 
 export const CreateNewPost = async (token, addNewPost) => {

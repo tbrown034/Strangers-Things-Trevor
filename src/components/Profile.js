@@ -1,30 +1,44 @@
 import React, { useState, useEffect } from "react";
-import { getUserInfo } from "../api";
+import { getUserMessages} from "../api";
 
 const Profile = () => {
-  const [myInfo, setMyInfo] = useState({});
-  const token = localStorage.getItem("token");
+  const [myInfo, setMyInfo] = useState([]);
   const clearUserInfo = () => {
     localStorage.removeItem('userName');
     localStorage.removeItem('token');
   };
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
 		const displayUserInfo = async () => {
-			const getmyInfo = await getUserInfo(token);
-			setMyInfo(getmyInfo)
+			const returnedUserInfo = await getUserMessages(token);
+			setMyInfo(returnedUserInfo)
 		}
 		displayUserInfo()
 }, []);
-
-  return (
+  return  localStorage.getItem("userName") ? (
     <div>
-      <h1>Welcome to your profile, !</h1>
-      <div>Your Messages:</div>
-      <div>You currently have no messages!</div>
-      <button onClick={clearUserInfo}>Log Out</button>
-    </div>
-  )
-};
+      <div>
+      <h1>My profile</h1>
+      <h3>Messages from Shoppers:</h3>
+      
+        {/* {myInfo.messages._id ? myInfo.map((singleMessage, index) => {
+              return (
+                <div key={index}>
+                  <ul>
+                    <li> Post Name: {singleMessage.post.title}</li>
+                    <li> From User: {singleMessage.fromUser.username}</li>
+                    <li> Message: {singleMessage.content}</li>
+                  </ul>
+                </div>
+              ) 
+              } )
+              : null} */}
+          </div>
+        </div> 
+          ) :null;
+      }
 
-export default Profile;
+      export default Profile 
+      
+      

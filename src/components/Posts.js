@@ -1,10 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { fetchPosts } from '../api'
-// import { BASE_URL } from '../api';
-// import { Search } from './Search'
-
-
 
 
 const Posts = () => {
@@ -12,8 +8,6 @@ const Posts = () => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const handleChange = (event) => {
         setSearchTerm(event.target.value)};
-
-
 	useEffect(() => {
 		const displayPosts = async () => {
 			const returnPosts = await fetchPosts();
@@ -29,7 +23,6 @@ return (
                 <input type="search" placeholder="Search Here..." value={searchTerm}
                 onChange={handleChange}
                 />
-                {/* <button onClick={handleChange} type="submit">Search</button> */}
             </form>
             </div>
 		<div className="allposts">
