@@ -56,7 +56,6 @@ export const getUserInfo = async (token) => {
     },})
   const result = await response.json();
   const userProfile = result;
-  console.log("userprofile", userProfile)
   return userProfile;}
 
 

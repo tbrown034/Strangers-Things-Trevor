@@ -22,10 +22,9 @@ const Profile = () => {
       <h1>Welcome to your profile, !</h1>
       <div>Your Messages:</div>
       <div>You currently have no messages!</div>
-      <button onClick={clearUserInfo()}>Log Out</button>
+      <button onClick={clearUserInfo}>Log Out</button>
     </div>
   )
 };
 
 export default Profile;
-
