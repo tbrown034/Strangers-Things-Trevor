@@ -3,6 +3,7 @@ import { getUserMessages} from "../api";
 
 const Profile = () => {
   const [myInfo, setMyInfo] = useState([]);
+
   const clearUserInfo = () => {
     localStorage.removeItem('userName');
     localStorage.removeItem('token');
@@ -19,10 +20,13 @@ const Profile = () => {
   return  localStorage.getItem("userName") ? (
     <div>
       <div>
-      <h1>My profile</h1>
-      <p>You have successfully logged in, {localStorage.getItem("userName")}</p>
-      <h3>Messages from Shoppers:</h3>
-      {myInfo.messages ? myInfo.map((singleMessage, index) => {
+        <h1>My profile</h1>
+        <p>You have successfully logged in, {localStorage.getItem("userName")}</p>
+        <button onClick={clearUserInfo}>Log Out</button>
+      </div>
+      <div>
+        <h3>Messages from Shoppers:</h3>
+        {myInfo.messages ? myInfo.map((singleMessage, index) => {
               return (
                 <div key={index}>
                   <ul>
@@ -34,9 +38,10 @@ const Profile = () => {
               ) 
               } )
               : null}
-          </div>
-          <button onClick={clearUserInfo}>Log Out</button>
-        </div> 
+      </div>
+      <div>
+      </div>
+    </div> 
           ) :null;
       }
       

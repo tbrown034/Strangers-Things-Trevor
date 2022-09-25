@@ -1,6 +1,6 @@
 //imports
 import { createRoot } from 'react-dom/client';
-import { Header, Posts, LogIn, Register, Profile, NewPost, UserPosts } from './components'
+import { Header, Posts, LogIn, Register, Profile, NewPost, UserPosts, SinglePost } from './components'
 
 
 
@@ -13,6 +13,7 @@ const App = () => {
 			<div> <Profile/> </div>
 			<div> <UserPosts/> </div>
 			<div> <NewPost/> </div>
+			<div> <SinglePost/> </div>
 			<div> <Posts/> </div>
 		</div>
 	)}
