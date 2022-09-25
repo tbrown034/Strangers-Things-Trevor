@@ -12,8 +12,6 @@ const App = () => {
 			<div> <Register/> </div>
 			<div> <Profile/> </div>
 			<div> <NewPost/> </div>
-			
-			{/* <div> <Search/> </div> */}
 			<div> <Posts/> </div>
 		</div>
 	)}

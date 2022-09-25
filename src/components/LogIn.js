@@ -5,6 +5,12 @@ const LogIn = () => {
     const [userName, setUserName] = useState("");
     const [userPass, setUserPass] = useState("");
     const [isLoggedin, setIsLoggedin] = useState(false);
+    const displayCurrentUser = () => {
+        if(!localStorage.getItem(null)) {
+            return
+        }
+        else {localStorage.getItem('userName')}
+        }
 
     const submitLogForm = async (event) => {
         event.preventDefault();
@@ -14,7 +20,10 @@ const LogIn = () => {
             setUserName("");
             setUserPass("");
             setIsLoggedin(true);
-            alert("Log in success!")}
+            alert("Log in success!")
+
+        
+        }
         }
         catch(err) {setUserName("");
         setUserPass("");
