@@ -55,7 +55,7 @@ export const getUserMessages = async (token) => {
       'Authorization': `Bearer ${token}`,
     },})
   const result = await response.json();
-  const userMessages = result.messages;
+  const userMessages = result;
   return userMessages;}
 
 
@@ -75,3 +75,13 @@ export const CreateNewPost = async (token, addNewPost) => {
     console.log("new post", newPost)
     return newPost;
   }
+
+  export const getUserPosts = async (token) => {
+    const response = await fetch(`${BASE_URL}/users/me`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },})
+    const result = await response.json();
+    const userPosts = result.posts;
+    return userPosts;}

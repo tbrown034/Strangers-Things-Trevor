@@ -5,6 +5,10 @@ const LogIn = () => {
     const [userName, setUserName] = useState("");
     const [userPass, setUserPass] = useState("");
     const [isLoggedin, setIsLoggedin] = useState(false);
+    const clearUserInfo = () => {
+        localStorage.removeItem('userName');
+        localStorage.removeItem('token');
+      };
 
 
     const submitLogForm = async (event) => {
@@ -36,7 +40,9 @@ return (
             </form>
             <div></div>
             <div>
-                <p>Not registered yet? Sign up here!</p>
+                <p>You have successfully logged in, {localStorage.getItem("userName")}</p>
+                <button onClick={clearUserInfo}>Log Out</button>
+                <p>Not registered yet? Sign up here! </p>
             </div>
             
         </div>

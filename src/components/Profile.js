@@ -20,25 +20,26 @@ const Profile = () => {
     <div>
       <div>
       <h1>My profile</h1>
+      <p>You have successfully logged in, {localStorage.getItem("userName")}</p>
       <h3>Messages from Shoppers:</h3>
-      
-        {/* {myInfo.messages._id ? myInfo.map((singleMessage, index) => {
+      {myInfo.messages ? myInfo.map((singleMessage, index) => {
               return (
                 <div key={index}>
                   <ul>
-                    <li> Post Name: {singleMessage.post.title}</li>
-                    <li> From User: {singleMessage.fromUser.username}</li>
-                    <li> Message: {singleMessage.content}</li>
+                    <li> Post Name: {singleMessage.messages.post.title}</li>
+                    <li> From User: {singleMessage.messages.fromUser.username}</li>
+                    <li> Message: {singleMessage.messages.content}</li>
                   </ul>
                 </div>
               ) 
               } )
-              : null} */}
+              : null}
           </div>
+          <button onClick={clearUserInfo}>Log Out</button>
         </div> 
           ) :null;
       }
-
+      
       export default Profile 
       
       
