@@ -16,8 +16,6 @@ export const fetchSinglePost = async (_id) => {
 }
 
 
-
-
 export const registerUser = async (userName, userPass) => {
   const response = await fetch(`${BASE_URL}/users/register`, {
       method: "POST",

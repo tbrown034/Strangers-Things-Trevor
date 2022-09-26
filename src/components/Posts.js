@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { fetchPosts, BASE_URL } from '../api'
+// import {BrowserRouter as Router} from 'react-Router'
 
 
 const Posts = () => {
