@@ -1,6 +1,6 @@
 //imports
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Routes, useNavigate } from 'react-router-dom';
 import { Header, Posts, LogIn, Register, Profile, NewPost, UserPosts, SinglePost } from './components'
 
 
@@ -10,7 +10,7 @@ const App = () => {
 		<div>
 			<div> <Header/> </div>
 			<Routes>
-			<Route path="/" element={<Posts/>}></Route>
+				<Route path="/posts" element={<Posts/>}></Route>
 				<Route path="/login" element={<LogIn/>}></Route>
 				<Route path="/register" element={<Register/>}></Route>
 				<Route path="/profile" element={<Profile/>}></Route>
