@@ -7,6 +7,17 @@ export const fetchPosts = async () => {
     return allPosts;
 }
 
+export const fetchSinglePost = async (_id) => {
+  const response = await fetch (`${BASE_URL}/posts/${_id}`);
+    const result = await response.json();
+    const OnePost = result.data.posts;
+    return OnePost;
+  
+}
+
+
+
+
 export const registerUser = async (userName, userPass) => {
   const response = await fetch(`${BASE_URL}/users/register`, {
       method: "POST",
@@ -85,3 +96,6 @@ export const CreateNewPost = async (token, addNewPost) => {
     const result = await response.json();
     const userPosts = result.posts;
     return userPosts;}
+
+
+    

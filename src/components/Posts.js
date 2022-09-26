@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { fetchPosts } from '../api'
+import { fetchPosts, BASE_URL } from '../api'
 
 
 const Posts = () => {
@@ -8,6 +8,14 @@ const Posts = () => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const handleChange = (event) => {
         setSearchTerm(event.target.value)};
+	const handleClick = (singlePost) => {
+		const postId = singlePost._id;
+		const URL = (`${BASE_URL}/posts/${postId}`)
+		console.log ("name", URL)
+
+	}
+
+
 	useEffect(() => {
 		const displayPosts = async () => {
 			const returnPosts = await fetchPosts();
@@ -35,9 +43,10 @@ return (
 					else if (singlePost.title.toLowerCase().includes(searchTerm.toLowerCase())) {
 						return singlePost
 					}
+					console.log(singlePost)
 				}).map((singlePost, _id) => {
 				return (
-					<div key={_id}>
+					<div key={_id } onClick={() => handleClick(singlePost)}>
 						<ul id="marketPlace">
 						<li id="itemTitle"> {singlePost.title}</li>
 							<ul>
