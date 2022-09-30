@@ -25,8 +25,9 @@ const Posts = () => {
 }, []);
 return (
    <div>
+	<br></br>
+	<h2 id="itemSale">Items For Sale</h2>
 		<div id="searchArea">
-            <h1>Search</h1>
             <form>
                 <input type="search" placeholder="Search Here..." value={searchTerm}
                 onChange={handleChange}
@@ -34,7 +35,7 @@ return (
             </form>
             </div>
 		<div id="allposts">
-			<h2>Items For Sale</h2>
+			
 				{
 				allPosts.filter((singlePost) => {
 					if (searchTerm == ""){

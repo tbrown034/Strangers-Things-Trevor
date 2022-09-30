@@ -1,6 +1,6 @@
 
 body {
-    background-color: lightcyan;
+    background-color: lightblue;
 }
 
 
@@ -32,7 +32,21 @@ a {
     background-color: midnightblue;
 }
 
+input {
+    width: 80%
 
+}
+
+#itemSale {
+    font-size: 22px;
+    color: midnightblue;
+}
+
+#box {
+    color: midnightblue;
+    background-color: lightblue;
+    border-bottom: 4px black dotted;
+}
 
 /* #searchArea {
     color: darkgreen;
