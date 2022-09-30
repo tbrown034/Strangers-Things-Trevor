@@ -1,32 +1,60 @@
-* {
-    background-color: skyblue;
+
+body {
+    background-color: lightcyan;
 }
 
-.header {
 
-    color: blue;
+#head {
+    color: lightblue;
+    background-color: midnightblue;
     font-size: 20px;
-    align-content: center;
+    text-align: center;
 }
+
+/* #title {
+    color: lightblue;
+    background-color: midnightblue;
+    font-size: 20px;
+    text-align: center;
+} */
 
 nav {
     display: flex;  
-    justify-content: space-between;
-
+    justify-content: space-around;
+    align-content: center;
+    color: lightblue;
+    background-color: midnightblue;
+    font-family:Georgia, 'Times New Roman', Times, serif
 }
 
-#posts {
-    color: darkblue;
+a {
+    color: lightblue;
+    background-color: midnightblue;
 }
 
-#marketPlace {
-    color: midnightblue;
-    border: 1px black solid;
 
+
+/* #searchArea {
+    color: darkgreen;
+    background-color: lightgreen;
 }
 
-#itemTitle {
-    font-size: larger;
-    font-weight: bolder;
-    color: blue;
+#allposts {
+    color: darkgray;
+    background-color:lightslategray;
 }
+
+.postDetails {
+    color: lightblue;
+    background-color: blue;
+}
+
+
+li {
+    color: orange ;
+    background-color: blue;
+} */
+
+
+
+

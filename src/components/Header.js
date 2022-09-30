@@ -4,17 +4,18 @@ import { BrowserRouter as Router, Route, Link, Routes, useNavigate } from 'react
 
 const Header = () => {
     return (
-    <header className="header">
-        <nav>
-				<Link to="/posts">Home</Link> 
+		<div>
+    		<div id="head">
+				<h1>STRANGER'S THINGS</h1>	
+       		 	<nav>
+				<Link to="/posts">Posts</Link> 
 				<Link to="/profile">Profile</Link> 
-				<Link to="/login">LogIn</Link> 
+				<Link to="/login">Log In/Log Out</Link> 
 				<Link to="/register">Register</Link> 
 				<Link to="/newpost">Create New Post</Link> 
-				{/* <span>Log In </span> */}
-			</nav>
-		<h1 id="title">STRANGER'S THINGS</h1>	
-    </header>)
+				</nav>
+   			 </div>
+		</div>)
 }
 
 

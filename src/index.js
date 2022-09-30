@@ -1,4 +1,5 @@
 //imports
+import react from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Route, Link, Routes, useNavigate } from 'react-router-dom';
 import { Header, Posts, LogIn, Register, Profile, NewPost, UserPosts, SinglePost } from './components'
@@ -6,10 +7,15 @@ import { Header, Posts, LogIn, Register, Profile, NewPost, UserPosts, SinglePost
 
 
 const App = () => {
+	
+
+
+
 	return (
 		<div>
 			<div> <Header/> </div>
 			<Routes>
+				<Route path="/" element={[<LogIn/>,<Posts/>]} />
 				<Route path="/posts" element={<Posts/>}></Route>
 				<Route path="/login" element={<LogIn/>}></Route>
 				<Route path="/register" element={<Register/>}></Route>
@@ -17,7 +23,6 @@ const App = () => {
 				<Route path="/userPosts" element={<UserPosts/>}></Route>
 				<Route path="/newpost" element={<NewPost/>}></Route>
 				<Route path="/singlepost" element={<SinglePost/>}></Route>
-
 			</Routes>
 		</div>
 	)}

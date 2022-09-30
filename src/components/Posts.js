@@ -12,7 +12,6 @@ const Posts = () => {
 	const handleClick = (singlePost) => {
 		const postId = singlePost._id;
 		const URL = (`${BASE_URL}/posts/${postId}`)
-		console.log ("name", URL)
 
 	}
 
@@ -26,7 +25,7 @@ const Posts = () => {
 }, []);
 return (
    <div>
-		<div className="SearchInput">
+		<div id="searchArea">
             <h1>Search</h1>
             <form>
                 <input type="search" placeholder="Search Here..." value={searchTerm}
@@ -34,8 +33,8 @@ return (
                 />
             </form>
             </div>
-		<div className="allposts">
-			<h2> All Posts</h2>
+		<div id="allposts">
+			<h2>Items For Sale</h2>
 				{
 				allPosts.filter((singlePost) => {
 					if (searchTerm == ""){
@@ -44,10 +43,9 @@ return (
 					else if (singlePost.title.toLowerCase().includes(searchTerm.toLowerCase())) {
 						return singlePost
 					}
-					console.log(singlePost)
 				}).map((singlePost, _id) => {
 				return (
-					<div key={_id } onClick={() => handleClick(singlePost)}>
+					<div id="box"  key={_id } onClick={() => handleClick(singlePost)}>
 						<ul id="marketPlace">
 						<li id="itemTitle"> {singlePost.title}</li>
 							<ul>
