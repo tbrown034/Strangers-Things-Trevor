@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Header, Posts, LogIn, Register, Profile, NewPost, UserPosts, SinglePost } from './components'
+import { Header, Posts, LogIn, Register, Profile, NewPost, UserPosts } from './components'
 
 const App = () => {
 	const [token, setToken] = useState('');
@@ -17,6 +17,7 @@ const App = () => {
     }
 	
 	return (
+		<Router>
 		<div>
 			<Header
                 token={token}
@@ -33,13 +34,14 @@ const App = () => {
 				{/* <Route path="/singlepost" element={<SinglePost/>}></Route> */}
 			</Routes>
 		</div>
+		</Router>	
 	)}
 const container = document.getElementById('app');
 const root = createRoot(container);
 root.render(
-	<Router>
+	
 		<App/>
-	</Router>
+	
 );
 
 
