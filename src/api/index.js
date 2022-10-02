@@ -91,7 +91,7 @@ export const CreateNewPost = async (token, addNewPost) => {
         'Authorization': `Bearer ${token}`,
       },})
     const result = await response.json();
-    const userPosts = result.posts;
+    const userPosts = result;
     return userPosts;}
 
 

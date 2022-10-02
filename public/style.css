@@ -4,36 +4,61 @@ body {
 }
 
 
-#head {
-    color: lightblue;
-    background-color: midnightblue;
-    font-size: 20px;
-    text-align: center;
+#headStyle {
+    border: solid;
+    display:flex;
+    justify-content: space-around ;
+    align-content: center;
+    background-color: darkblue;
+    color: aliceblue;
+    padding-top: 21px;
 }
 
-/* #title {
-    color: lightblue;
-    background-color: midnightblue;
-    font-size: 20px;
-    text-align: center;
-} */
+#notLoginNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 10px
+}
 
-nav {
-    display: flex;  
+#notLoginNav a {
+    margin-right: 8px;
+    padding-top: 1.2vw;
+    padding-left: .5vw;
+    font-weight: bolder;
+    font-size: 3vh;
+}
+
+#loginNav {
+    border: solid;
+    display: flex;
+    flex-direction: row;
     justify-content: space-around;
-    align-content: center;
-    color: lightblue;
-    background-color: midnightblue;
-    font-family:Georgia, 'Times New Roman', Times, serif
+    padding-right: 10px;
+    font-size: 1.5;
+}
+
+#loginNav a {
+    margin-right: 8px;
+    padding-top: 1.2vw;
+    padding-left: .5vw;
+    font-weight: bolder;
+    font-size: 3vh;
+}
+
+#headTitle {
+    color: white;
+    font-family: monospace;
+    font-size: 3vw;
+    text-decoration: none;
+    padding-right: 9vw;
 }
 
 a {
-    color: lightblue;
-    background-color: midnightblue;
-}
-
-input {
-    width: 80%
+    color: white;
+    font-family: monospace;
+    text-decoration: none;
+    padding-right: 1vw;
 
 }
 
@@ -47,28 +72,6 @@ input {
     background-color: lightblue;
     border-bottom: 4px black dotted;
 }
-
-/* #searchArea {
-    color: darkgreen;
-    background-color: lightgreen;
-}
-
-#allposts {
-    color: darkgray;
-    background-color:lightslategray;
-}
-
-.postDetails {
-    color: lightblue;
-    background-color: blue;
-}
-
-
-li {
-    color: orange ;
-    background-color: blue;
-} */
-
 
 
 

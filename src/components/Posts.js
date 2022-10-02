@@ -20,6 +20,7 @@ const Posts = () => {
 		const displayPosts = async () => {
 			const returnPosts = await fetchPosts();
 			setAllPosts(returnPosts)
+			console.log("posts", returnPosts)
 		}
 		displayPosts()
 }, []);

@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import { loginUser } from "../api";
 
-const LogIn = () => {
+const LogIn = (setToken) => {
     const [userName, setUserName] = useState("");
     const [userPass, setUserPass] = useState("");
     const [isLoggedin, setIsLoggedin] = useState(false);
-    const clearUserInfo = () => {
-        localStorage.removeItem('userName');
-        localStorage.removeItem('token');
-      };
 
 
     const submitLogForm = async (event) => {
@@ -19,7 +15,8 @@ const LogIn = () => {
             setUserName("");
             setUserPass("");
             setIsLoggedin(true);
-            alert("Log in success!")
+            location.reload()
+            
         }
         }
         catch(err) {setUserName("");
@@ -30,6 +27,8 @@ return (
     <div>
         <div>
             <h1>Log In</h1>
+
+
             <form id="loginForm" onSubmit={submitLogForm}>
                 <input type="text" placeholder="Username ..." value={userName} required onChange={(event) => {
                     setUserName(event.target.value)}}  />
@@ -40,11 +39,7 @@ return (
             </form>
             <div></div>
             <div>
-                <p>You have successfully logged in, {localStorage.getItem("userName")}</p>
-                <button onClick={clearUserInfo}>Log Out</button>
-                <p>Not registered yet? Sign up here! </p>
             </div>
-            
         </div>
     </div>
 )}
