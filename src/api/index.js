@@ -7,14 +7,17 @@ export const fetchPosts = async () => {
     return allPosts;
 }
 
-export const fetchSinglePost = async (_id) => {
+export const fetchSinglePost = async () => {
+  try {
   const response = await fetch (`${BASE_URL}/posts/${_id}`);
     const result = await response.json();
     const OnePost = result.data.posts;
     return OnePost;
-  
+} catch (error) {
+  console.error("error during fetch single post")
+  throw error;
 }
-
+}
 
 export const registerUser = async (userName, userPass) => {
   const response = await fetch(`${BASE_URL}/users/register`, {

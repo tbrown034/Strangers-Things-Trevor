@@ -22,7 +22,6 @@ const Header = ({token, setToken}) => {
 			<div>
 				<nav id="loginNav">
 					<Link to="/profile">Profile</Link> 
-					<Link to="/profile">Profile</Link> 
 		  			<Link to="/posts">See All Posts</Link> 
 					  <Link to="/userposts">See Your Posts</Link> 
 		  			<Link to="/newpost">Create New Post</Link> 

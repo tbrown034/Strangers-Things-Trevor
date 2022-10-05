@@ -1,26 +1,27 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { fetchPosts, BASE_URL } from '../api'
-// import {BrowserRouter as Router} from 'react-Router'
+import { fetchPosts } from '../api'
+import { Link } from "react-router-dom";
+
 
 
 const Posts = () => {
 	const [allPosts, setAllPosts] = useState([]);
 	const [searchTerm, setSearchTerm] = useState("");
+	
 	const handleChange = (event) => {
         setSearchTerm(event.target.value)};
 	const handleClick = (singlePost) => {
-		const postId = singlePost._id;
-		const URL = (`${BASE_URL}/posts/${postId}`)
+		const singleId = singlePost._id
+		console.log("click", singleId)
+
 
 	}
-
 
 	useEffect(() => {
 		const displayPosts = async () => {
 			const returnPosts = await fetchPosts();
 			setAllPosts(returnPosts)
-			console.log("posts", returnPosts)
 		}
 		displayPosts()
 }, []);
@@ -47,15 +48,16 @@ return (
 					}
 				}).map((singlePost, _id) => {
 				return (
-					<div id="box"  key={_id } onClick={() => handleClick(singlePost)}>
+					<div id="box"  key={_id } >
 						<ul id="marketPlace">
-						<li id="itemTitle"> {singlePost.title}</li>
+						<li id="itemTitle" onClick={() =>handleClick(singlePost)}> {singlePost.title}</li>
 							<ul>
 								<li> Price: {singlePost.price}</li>
 								<li> description: {singlePost.description}</li>
 								<li> Seller: {singlePost.author.username}</li>
 								<li> Location: {singlePost.location}</li>
 								<li> Post Created: {singlePost.createdAt}</li>
+								<Link to={`posts/${singlePost._id}`}>More info</Link>
 							</ul>
 						</ul>
 					</div>

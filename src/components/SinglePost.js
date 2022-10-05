@@ -1,21 +1,34 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { fetchSinglePost } from "../api";
+import { fetchPosts } from "../api";
+import { useParams } from "react-router-dom";
 
-const SinglePost = () => {
+
+const SinglePost = (_id) => {
     const [aSinglePost, setSinglePost] = useState([]);
+    const params = useParams();
+    const number = params._id;
+    console.log("param", number ) 
     useEffect(() => {
-		const displayPost = async () => {
-			const returnPost = await fetchSinglePost();
-			setSinglePost(returnPost)
-		}
+		const displayPost = async (_id) => {
+			const returnPost = await fetchPosts();
+			setSinglePost(returnPost)		
+        }
 		displayPost()
 }, []);
 
     return (
         <div>
+            <div>
+                <p>test</p>
+                <p>returnPost</p>
+            </div>
+
+
+
         <h2>Post</h2>
-        {aSinglePost.title ? aSinglePost.map((singlePost, _id) => {
+        {aSinglePost.map((singlePost, _id) => {
+            if (number === singlePost._id)
             return (
                 <div key={_id}>
                     <ul id="marketPlace">
@@ -32,7 +45,7 @@ const SinglePost = () => {
             ) 
         }
         
-        ) : null }
+        )}
 
         </div>
     )
