@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { getUserPosts, deletePost} from "../api";
+import { getUserPosts, deletePost, editPost} from "../api";
 
 const UserPosts = () => {
+  const token = localStorage.getItem("token");
     const [myPosts, setMyPosts] = useState([]);
+   
     const handleDeleteButton = (event) => {
-      event.preventDefault()
-      deleteRoutine(routine.id, token)
-      setNewRoutineCount(newRoutineCount+1)
+      event.preventDefault();
+      const token = localStorage.getItem("token");
+      deletePost(token)
   }
     useEffect(() => {
       const token = localStorage.getItem("token");
@@ -36,6 +38,8 @@ const UserPosts = () => {
                  <li> Post Created: {singlePost.createdAt}</li>
                </ul>
              </ul>
+             <button onClick={(event) => {handleDeleteButton(event)}}>Remove Post</button>
+             <button onClick={(event) => {handleDeleteButton(event)}}>Edit</button>
            </div>
          ) 
          } )

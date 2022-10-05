@@ -29,7 +29,7 @@ const App = () => {
 				<Route path="/login" element={<LogIn/>}></Route>
 				<Route path="/register" element={<Register/>}></Route>
 				<Route path="/profile" element={<Profile/>}></Route>
-				<Route path="/userposts" element={<UserPosts/>}></Route>
+				<Route path="/userposts" element={<UserPosts token = {token}/>}></Route>
 				<Route path="/newpost" element={<NewPost/>}></Route>
 				<Route path="posts/:_id" element={<SinglePost />}></Route>
 			</Routes>
