@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { getUserPosts} from "../api";
+import { getUserPosts, deletePost} from "../api";
 
 const UserPosts = () => {
     const [myPosts, setMyPosts] = useState([]);
+    const handleDeleteButton = (event) => {
+      event.preventDefault()
+      deleteRoutine(routine.id, token)
+      setNewRoutineCount(newRoutineCount+1)
+  }
     useEffect(() => {
       const token = localStorage.getItem("token");
           const displayUserPosts = async () => {
               const returnedUserPosts = await getUserPosts(token);
               const userPosts = returnedUserPosts.data.posts 
               setMyPosts(userPosts)
-              console.log("myposts", userPosts)
-              console.log("token", token)
           }
           displayUserPosts()
   }, []);

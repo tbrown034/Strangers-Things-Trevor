@@ -13,7 +13,6 @@ const Posts = () => {
         setSearchTerm(event.target.value)};
 	const handleClick = (singlePost) => {
 		const singleId = singlePost._id
-		console.log("click", singleId)
 
 
 	}

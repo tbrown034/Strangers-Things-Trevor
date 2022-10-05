@@ -8,7 +8,6 @@ const SinglePost = (_id) => {
     const [aSinglePost, setSinglePost] = useState([]);
     const params = useParams();
     const number = params._id;
-    console.log("param", number ) 
     useEffect(() => {
 		const displayPost = async (_id) => {
 			const returnPost = await fetchPosts();
@@ -19,14 +18,6 @@ const SinglePost = (_id) => {
 
     return (
         <div>
-            <div>
-                <p>test</p>
-                <p>returnPost</p>
-            </div>
-
-
-
-        <h2>Post</h2>
         {aSinglePost.map((singlePost, _id) => {
             if (number === singlePost._id)
             return (
@@ -41,6 +32,7 @@ const SinglePost = (_id) => {
                             <li> Post Created: {singlePost.createdAt}</li>
                         </ul>
                     </ul>
+                    
                 </div>
             ) 
         }

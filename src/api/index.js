@@ -97,5 +97,44 @@ export const CreateNewPost = async (token, addNewPost) => {
     const userPosts = result;
     return userPosts;}
 
+export const deletePost = async (token) => {
+  const response =await fetch (`${BASE_URL}/posts/:_id`, {
+    method: "PATCH",
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    },})
+    const result = await response.json();
+    const deleteIt = result;
+    return deleteIt;
+}
+
+export const editPost = async (title, description, price, location, willDeliver, token) => {
+  const response =await fetch (`${BASE_URL}/posts/:_id`, {
+    method: "PATCH",
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      post: {
+      title: title,
+      description: description,
+      price: price,
+      location: location,
+      willDeliver: willDeliver
+      }
+    })
+
+  })
+    const result = await response.json();
+    const editIt = result;
+    return editIt;
+}
+
+
+
+
+
 
     
